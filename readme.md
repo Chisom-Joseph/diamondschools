@@ -1,4 +1,4 @@
-# 🎓 School Website
+# 🎓 Diamond Schools Website
 
 A **web application** built using **Node.js**, **Express.js**, and **EJS** templating engine. Designed for educational institutions, the site features essential pages such as a homepage, about page, contact page, and a blog section.
 
@@ -59,20 +59,23 @@ A **web application** built using **Node.js**, **Express.js**, and **EJS** templ
 
 Follow these steps to run the application locally
 
-- **01.**: Clone the Repository:
+- **01.** Clone the Repository:
 
 ```bash
 git clone git+https://github.com/Chisom-Joseph/diamondschools.git
+```
+
+```bash
 cd diamondschools
 ```
 
-- **02.**: Install Dependencies:
+- **02.** Install Dependencies:
 
 ```bash
 npm install
 ```
 
-- **03.**: Install Dependencies:
+- **03.** Install Dependencies:
 
 ```bash
 npm start
