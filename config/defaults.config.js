@@ -1,10 +1,13 @@
 const siteSettings = {
-  name: "Chisom Joseph Njoku",
-  title: "Diamond School",
-  description: "Diamond School",
-  keyworkds: "Diamond School",
-  logo: "/assets/img/logo.png",
-  icon: "/assets/img/logo.png",
+  name: "Diamond Schools",
+  title: "Diamond Schools",
+  description: "Diamond Schools",
+  keyworkds: "Diamond Schools",
+  email: "diamondschoolsnkpor@gmail.com",
+  address: "No.7 Ernest Odili Crescent, Nkpor, Anambara State, Nigeria",
+  phone1: "07057430682",
+  phone2: "08026125461",
+  phone3: "08130331977",
   favicon: "/assets/img/logo/favicon.png",
 };
 
