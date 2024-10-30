@@ -1,6 +1,6 @@
 # 🎓 Diamond Schools Website
 
-A **web application** built using **Node.js**, **Express.js**, and **EJS** templating engine. Designed for educational institutions, the site features essential pages such as a homepage, about page, contact page, and a blog section.
+A **web application** built using **Node.js**, **Express.js**, and **EJS** templating engine. Designed for Diamond shcools, the site features essential pages such as a homepage, about page, contact page, and a blog section.
 
 ---
 

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 router.use(require("../middlewares/setSiteSettings"));
-router.use("/pages", require("./pages"));
+router.use("/page", require("./pages"));
 
 // Home page
 router.get("/", (req, res) => {
