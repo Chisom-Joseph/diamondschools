@@ -1,19 +1,24 @@
 const router = require("express").Router();
 
-// About Us page
-router.get("/about-us", (req, res) => {
-  res.render("pages/aboutUs", {
-    title: `About Us | ${req.siteSettings.name}`,
-    siteSettings: req.siteSettings,
-  });
-});
+router.get("/contact", (req, res) => {
+    res.render("pages/contact.ejs",  {
+        title: `Contact Us | ${req.siteSettings.name}`,
+        siteSettings: req.siteSettings,
+      })
+})
 
-// Contact Us page
-router.get("/contact-us", (req, res) => {
-  res.render("pages/contactUs", {
-    title: `Contact Us | ${req.siteSettings.name}`,
-    siteSettings: req.siteSettings,
-  });
-});
+router.get("/about", (req, res) => {
+    res.render("pages/about.ejs",  {
+        title: `About Us | ${req.siteSettings.name}`,
+        siteSettings: req.siteSettings,
+      })
+})
+
+router.get("/faq", (req, res) => {
+    res.render("pages/faq.ejs",  {
+        title: `FAQ | ${req.siteSettings.name}`,
+        siteSettings: req.siteSettings,
+      })
+})
 
 module.exports = router;
