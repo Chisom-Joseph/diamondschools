@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+router.use(require("../middlewares/morgan.js"));
 router.use(require("../middlewares/setSiteSettings"));
 router.use("/pages", require("./pages"));
 

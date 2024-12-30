@@ -1,0 +1,90 @@
+<%- include("../partials/header.ejs") %>
+<main class="main">
+
+  <!-- breadcrumb -->
+  <div class="site-breadcrumb" style="background: url(assets/img/breadcrumb/01.jpg)">
+    <div class="container">
+      <h2 class="breadcrumb-title">Aspirant Info</h2>
+      <ul class="breadcrumb-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">Aspirant Info</li>
+      </ul>
+    </div>
+  </div>
+  <!-- breadcrumb end -->
+
+
+  <!-- tuition fee -->
+  <div class="tuition-fee py-120">
+    <div class="container">
+      <div class="tuition-wrap">
+        <div class="mb-2">
+          <h3 class="mb-3">Account Creation success</h3>
+          <p>More information Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente iusto doloribus ea porro laboriosam ratione rerum officia reiciendis hic itaque? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis autem fuga obcaecati modi commodi!</p>
+        </div>
+        <div class="tuition-fee-table">
+          <h4 class="my-4">Login Information</h4>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Details</th>
+                  <td>Values</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th scope="row">Exam Number</th>
+                  <td><%= aspirant.examinationNumber %></td>
+                </tr>
+                <tr>
+                  <th scope="row">Password</th>
+                  <td><%= aspirant.plainPassword %></td>
+                </tr>
+                <tr>
+                  <th class="text-center" scope="row" colspan="2">Exam Information</th>
+                </tr>
+                <tr>
+                  <th scope="row">Class</th>
+                  <td><%= aspirant.class.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row">Subjects</th>
+                  <td><%= aspirant.subjects %>English, Mathematics and General Paper</td>
+                </tr>
+                <tr>
+                  <th scope="row">Date Of Examination</th>
+                  <td><%= aspirant.examinationDate %></td>
+                </tr>
+                <tr>
+                  <th scope="row">Time Of Examination</th>
+                  <td><%= aspirant.examinationTime %></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        <div class="mt-4 mb-2">
+          <h3 class="mb-3">Exam instructions</h3>
+          <ul style="list-style: disc; padding-left: 20px;">
+            <li>
+              - Do not bring phone, wrist watch electronic device, necklace, ring to the exam hall
+            </li>
+            <li>
+              - You art to come with the examination slip on the day of the examination
+            </li>
+            <li>
+              - You will be marked absent if you don not seat for the exam as indicated above
+            </li>
+          </ul>
+          <a href="#" class="theme-btn mt-4"><span class="far fa-file-pdf"></span> Download Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tuition fee end -->
+
+</main>
+<%- include("../partials/footer.ejs") %>
