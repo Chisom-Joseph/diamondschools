@@ -8,7 +8,6 @@ const session = require("express-session");
 const logger = require("./utils/logger");
 const PORT = process.env.PORT || 4728;
 const db = require("./models");
-const bodyParser = require("body-parser");
 
 app.use(
   session({

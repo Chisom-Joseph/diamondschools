@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Aspirant = sequelize.define("Aspirant", {
+  const Teacher = sequelize.define("Teacher", {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    examinationNumber: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -65,13 +65,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    paymentProofUrl: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        notEmpty: true,
-      },
-    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -93,13 +86,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    dateOfBirth: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
     blocked: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
@@ -116,21 +102,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    examinationDate: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    isStudent: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        notEmpty: true,
-      },
-      defaultValue: undefined,
-    },
     lastAccess: {
       type: DataTypes.STRING,
       defaultValue: Date.now(),
@@ -140,5 +111,5 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-  return Aspirant;
+  return Teacher;
 };
