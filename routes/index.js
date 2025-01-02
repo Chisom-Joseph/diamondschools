@@ -2,6 +2,7 @@ const router = require("express").Router();
 router.use(require("../middlewares/morgan.js"));
 router.use(require("../middlewares/setSiteSettings"));
 router.use("/pages", require("./pages"));
+router.use("/api", require("./api"));
 
 // Home page
 router.get("/", (req, res) => {
