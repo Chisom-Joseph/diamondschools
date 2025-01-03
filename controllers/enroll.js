@@ -56,6 +56,7 @@ module.exports = async (req, res) => {
         });
         req.flash("form", req.body);
         req.flash("status", 400);
+        return res.redirect("/pages/enroll");
       }
 
       // Check if payment proof was uploaded
