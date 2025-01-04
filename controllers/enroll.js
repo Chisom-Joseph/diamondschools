@@ -97,17 +97,17 @@ module.exports = async (req, res) => {
         email: req.body.guardianEmail,
         phoneNumber: req.body.guardianPhoneNumber,
         address: req.body.guardianAddress,
-        country: req.body.country,
         ocupation: req.body.guardianOcupation,
         relationshipToStudent: req.body.relationshipToStudent,
-        dateOfBirth: req.body.dateOfBirth,
+        country: req.body.country, // may be unneccessary
+        dateOfBirth: req.body.dateOfBirth, // may be unneccessary
       });
       console.log(newGuardian);
 
       const examinationNumber = await require("../utils/genExamNumber")();
       const password = await require("../utils/genPassword")();
-      const profileImageUrl = `/assets/img/studentPhotos/${req.files["photo"][0].filename}`;
-      const paymentProofUrl = `/assets/img/paymentProofs/${req.files["paymentProof"][0].filename}`;
+      const profileImageUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/studentPhotos/${req.files["photo"][0].filename}`;
+      const paymentProofUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/paymentProofs/${req.files["paymentProof"][0].filename}`;
 
       // Hash password
       const salt = await bcrypt.genSalt(10);
