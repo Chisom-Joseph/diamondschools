@@ -48,7 +48,9 @@ module.exports = async (req, res) => {
       });
     });
   } catch (error) {
-    console.log("SOMTHING WENT WRONG COPYING ASPIRANT PHOTO TO STUDENT FOLDER");
+    console.log(
+      "SOMTHING WENT WRONG UPLOADING ASPIRANT PHOTO TO STUDENT FOLDER"
+    );
     console.log(error);
   }
 };
