@@ -102,7 +102,7 @@ module.exports = async (req, res) => {
         country: req.body.country, // may be unneccessary
         dateOfBirth: req.body.dateOfBirth, // may be unneccessary
       });
-      console.log(newGuardian);
+      logger.info(newGuardian);
 
       const examinationNumber = await require("../utils/genExamNumber")();
       const password = await require("../utils/genPassword")();
@@ -134,7 +134,7 @@ module.exports = async (req, res) => {
         ClassId: req.body.class,
         GuardianId: newGuardian.id,
       });
-      console.log(newAspirant);
+      logger.info(newAspirant);
 
       const aspirant = newAspirant.dataValues;
       aspirant.guardian = newGuardian.dataValues;
@@ -142,7 +142,7 @@ module.exports = async (req, res) => {
       aspirant.examinationTime = "1pm - 6:30pm";
       aspirant.examinationNumber = examinationNumber;
       (aspirant.class = await require("../utils/getClass")(req.body.class)),
-        console.log(aspirant);
+        logger.info(aspirant);
 
       req.flash("aspirant", aspirant);
       return res.redirect("/pages/aspirant-info");
