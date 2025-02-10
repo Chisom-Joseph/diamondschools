@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOY_PATH=/home/ovyqbumg/public_html/diamondschools
+    - /bin/cp -r * $DEPLOY_PATH
