@@ -8,11 +8,14 @@ node_modules
 
 /models/sync.ffs_db
 
-/public/assets/img/aspirantPhotos
+/public/assets/img/aspirantPhotos/*
 !/public/assets/img/aspirantPhotos/.gitkeep
 
-/public/assets/img/studentPhotos
+/public/assets/img/studentPhotos/*
 !/public/assets/img/studentPhotos/.gitkeep
 
-/public/assets/img/paymentProofs
+/public/assets/img/paymentProofs/*
 !/public/assets/img/paymentProofs/.gitkeep
+
+/public/assets/img/teacherPhotos/*
+!/public/assets/img/teacherPhotos/.gitkeep

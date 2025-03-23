@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const multer = require("multer");
 const sutdentProfileImageUpload = require("../../middlewares/studentProfileImageUpload ");
 
@@ -36,6 +38,26 @@ module.exports = async (req, res) => {
               message: "Failed to upload file",
             },
           });
+        }
+      }
+
+      console.log(req.body);
+
+      // Extract filename from URL and build the correct file path
+      if (req.body.previousProfilePhoto) {
+        const filename = path.basename(req.body.previousProfilePhoto); // Extracts 'file-1742220856637.jpg'
+        const filePath = path.join(
+          __dirname,
+          "../../public/assets/img/studentPhotos",
+          filename
+        );
+
+        // Check if the file exists and delete it
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+          console.log(`Deleted existing file: ${filePath}`);
+        } else {
+          console.log(`File not found: ${filePath}`);
         }
       }
 
