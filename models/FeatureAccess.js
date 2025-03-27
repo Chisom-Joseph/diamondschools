@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const DisabledFeatures = sequelize.define("DisabledFeatures", {
+  const FeatureAccess = sequelize.define("FeatureAccess", {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -9,29 +9,26 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    featureName: {
+    userType: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         notEmpty: true,
       },
     },
-    user: {
-      type: DataTypes.STRING,
-      defaultValue: "all",
-      allowNull: false,
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: true,
       validate: {
         notEmpty: true,
       },
     },
-    disabledOn: {
-      type: DataTypes.STRING,
-      defaultValue: Date.now(),
+    enabled: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+      defaultValue: true,
     },
   });
-  return DisabledFeatures;
+
+  return FeatureAccess;
 };
