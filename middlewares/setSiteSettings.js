@@ -1,5 +1,10 @@
 const getSiteSettings = require("../helpers/getSiteSettings");
-module.exports = (req, res, next) => {
-  req.siteSettings = getSiteSettings();
-  next();
+module.exports = async (req, res, next) => {
+  try {
+    req.siteSettings = await getSiteSettings();
+    next();
+  } catch (error) {
+    console.error("Error setting site settings:", error);
+    next();
+  }
 };

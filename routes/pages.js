@@ -39,6 +39,7 @@ router.get("/enroll", async (req, res) => {
     examinationDate: await require("../utils/getExaminationDate")(),
     occupations: await require("../utils/getOccupations")(),
     relationships: await require("../utils/getRelationships")(),
+    paymentSettings: await require("../utils/getPaymentSettings")(),
     countries: Country.getAllCountries(),
     states: State.getAllStates(),
   });
