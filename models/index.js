@@ -156,6 +156,22 @@ db.Notification.belongsToMany(db.Aspirant, {
   onDelete: "CASCADE",
 });
 
+db.Teacher.belongsToMany(db.Notification, {
+  through: db.UserNotification,
+  foreignKey: "TeacherId",
+  onDelete: "CASCADE",
+});
+
+db.Notification.belongsToMany(db.Teacher, {
+  through: db.UserNotification,
+  foreignKey: "NotificationId",
+  targetKey: "id",
+  onDelete: "CASCADE",
+});
+
+db.Notification.hasMany(db.UserNotification, { foreignKey: "NotificationId" });
+db.UserNotification.belongsTo(db.Notification, { foreignKey: "NotificationId" });
+
 db.Term.belongsTo(db.AcademicYear, { onDelete: "CASCADE" });
 db.AcademicYear.hasMany(db.Term, { onDelete: "CASCADE" });
 
