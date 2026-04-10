@@ -6,8 +6,21 @@ const routes = require("./routes");
 const flash = require("connect-flash");
 const session = require("express-session");
 const logger = require("./utils/logger");
+const compression = require("compression");
 const PORT = process.env.PORT || 4728;
 const db = require("./models");
+
+// Enable gzip compression for all responses
+app.use(compression({
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  },
+  threshold: 1024, // Only compress responses larger than 1KB
+  level: 6, // Compression level (1-9, 6 is a good balance
+}));
 
 app.use(
   session({
@@ -18,7 +31,20 @@ app.use(
 );
 app.use(flash());
 app.set("view engine", "ejs"); // Set view engine to ejs
-app.use(express.static("public")); // Export Public accests
+
+// Serve static files with caching headers (1 year for immutable assets)
+app.use(express.static("public", {
+  maxAge: '1y',
+  etag: true,
+  lastModified: true,
+  setHeaders: (res, path) => {
+    // Force no caching for HTML files
+    if (path.endsWith('.html') || path.endsWith('.ejs')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    }
+  }
+}));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes); // Use Routes

@@ -15,14 +15,26 @@
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="<%- siteSettings.favicon %>">
 
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin>
+
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="/assets/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="/assets/css/style.css" as="style">
+
   <!-- css -->
-  <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/all-fontawesome.min.css">
   <link rel="stylesheet" href="/assets/css/animate.min.css">
   <link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
   <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Defer non-critical CSS -->
+  <link rel="preload" href="/assets/css/sweetalert2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/sweetalert2.min.css"></noscript>
 
 </head>
 
@@ -75,7 +87,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container position-relative">
           <a class="navbar-brand" href="/">
-            <img style="width: 3em" src="/assets/img/logo/logo.png" alt="logo">
+            <img style="width: 3em" src="/assets/img/logo/logo.png" alt="logo" loading="lazy">
           </a>
           <div class="mobile-menu-right">
             <div class="search-btn">
@@ -88,8 +100,8 @@
           <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://diamondschools.com.ng/pages/about">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://diamondschools.com.ng/pages/contact">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pages/about">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pages/contact">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="/pages/enroll">Enroll</a></li>
               <li class="nav-item"><a class="nav-link" href="https://exam.diamondschools.com.ng/">CBT</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
