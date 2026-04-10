@@ -19,8 +19,21 @@ app.use(compression({
     return compression.filter(req, res);
   },
   threshold: 1024, // Only compress responses larger than 1KB
-  level: 6, // Compression level (1-9, 6 is a good balance
+  level: 6, // Compression level (1-9, 6 is a good balance)
 }));
+
+// Security headers for performance and security
+app.use((req, res, next) => {
+  // Prevent MIME type sniffing
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  // Enable HTTP Strict Transport Security
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  // Referrer policy
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  // Feature policy for performance
+  res.setHeader('Permissions-Policy', 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
+  next();
+});
 
 app.use(
   session({

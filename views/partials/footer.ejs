@@ -99,11 +99,34 @@
 <script src="/assets/js/jquery.appear.min.js" defer></script>
 <script src="/assets/js/jquery.easing.min.js" defer></script>
 <script src="/assets/js/owl.carousel.min.js" defer></script>
-<script src="/assets/js/counter-up.js" defer></script>
+<script src="/assets/js/counter-up.min.js" defer></script>
 <script src="/assets/js/wow.min.js" defer></script>
-<script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/custom.js" defer></script>
+<script src="/assets/js/main.min.js" defer></script>
+<script src="/assets/js/custom.min.js" defer></script>
 <script src="/assets/js/sweetalert2.all.min.js" defer></script>
+
+<!-- Fast preloader hide -->
+<script>
+  (function() {
+    // Hide preloader as soon as DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hidePreloader);
+    } else {
+      hidePreloader();
+    }
+    
+    function hidePreloader() {
+      var preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 0.3s ease';
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 300);
+      }
+    }
+  })();
+</script>
 
 </body>
 
