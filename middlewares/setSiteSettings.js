@@ -1,4 +1,4 @@
-const getSiteSettings = require("../helpers/getSiteSettings");
+const getSiteSettings = require("../helpers/getSiteSettingsCached");
 module.exports = async (req, res, next) => {
   try {
     req.siteSettings = await getSiteSettings();

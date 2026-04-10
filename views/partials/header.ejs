@@ -9,27 +9,56 @@
   <meta name="description" content="<%- siteSettings.description %>">
   <meta name="keywords" content="<%- siteSettings.keyworkds %>">
 
+  <!-- Performance: Preconnect to critical domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
   <!-- title -->
   <title><%- title %></title>
 
   <!-- favicon -->
   <link rel="icon" type="image/x-icon" href="<%- siteSettings.favicon %>">
 
-  <!-- css -->
-  <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+  <!-- Critical CSS inlined for above-the-fold content -->
+  <style>
+    /* Critical CSS: Preloader, Header, Navbar */
+    *,:after,:before{box-sizing:inherit}*{scroll-behavior:inherit!important}body,html{height:auto;width:100%;overflow-x:hidden;box-sizing:border-box}body{font-family:"Roboto",sans-serif;font-style:normal;font-size:16px;font-weight:400;color:#757f95;line-height:1.8}a{display:inline-block}a,a:active,a:focus,a:hover{outline:0;text-decoration:none}li{list-style:none}h1,h2,h3,h4,h5,h6{margin:0;font-weight:600;font-family:"Yantramanav",sans-serif;line-height:1}p{margin:0}.preloader{position:fixed;width:100%;height:100%;top:0;left:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0a1c6d}.loader-book{width:100px;height:61px;position:relative;perspective:150px;border:5px solid #fff}.loader-book-page{display:block;width:50px;height:60px;border:5px solid #fff;border-left:5px solid #fff;margin:0;position:absolute;right:-4px;top:-4px;overflow:hidden;transform-style:preserve-3d;transform-origin:left center;background:#0a1c6d}.loader-book-page:first-child{animation:1.2s cubic-bezier(0,.39,1,.68) 1.6s infinite loader-book}.loader-book-page:nth-child(2){animation:1.2s cubic-bezier(0,.39,1,.68) 1.45s infinite loader-book}.loader-book-page:nth-child(3){animation:1.2s cubic-bezier(0,.39,1,.68) 1.2s infinite loader-book}@keyframes loader-book{0%{transform:rotateY(0)}20%{background:#ff8b07}40%{background:#ff8b07;transform:rotateY(-180deg)}100%{background:#0a1c6d;transform:rotateY(-180deg)}}.header-top{background:#0a1c6d;padding:9px 0 10px;position:relative;z-index:1}.header-top::before{content:"";position:absolute;left:0;top:0;bottom:-1px;width:30%;background:#ff8b07;z-index:-1}.header-top-wrap{display:flex;align-items:center;justify-content:space-between}.header-top-contact ul{display:flex;align-items:center;gap:20px}.header-top-contact ul li{display:flex;gap:10px;border-right:1px solid rgba(255,255,255,.2);padding-right:20px}.header-top-contact ul li:last-child{border:none;padding-right:0}.header-top-contact ul li a{color:#fff;font-weight:400}.header-top-contact ul li a i{color:#ff8b07;margin-right:5px}.header-top-social span{color:#fff;font-weight:500}.header-top-social a{width:35px;height:35px;line-height:35px;color:#fff;font-size:16px;text-align:center;margin-left:5px;border-radius:50px;background:#ff8b07;display:inline-block}.navbar{background:#fff;padding-top:0;padding-bottom:0;z-index:999}.navbar-brand{margin-right:0}.navbar-brand img{width:170px}.navbar .navbar-toggler:focus{outline:0;box-shadow:none}.nav-right{display:flex;align-items:center;justify-content:center;gap:30px;margin-left:45px}.nav-right-link{position:relative;font-size:20px;color:#19232b}.mobile-menu-right{display:flex;align-items:center;gap:20px}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:1200px){.container{max-width:1200px}}
+  </style>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/assets/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="/assets/css/style.css" as="style">
+  <link rel="preload" href="/assets/img/slider/optimized/slider-1.webp" as="image" fetchpriority="high">
+
+  <!-- Async CSS loading for non-critical styles -->
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/style.min.css"></noscript>
+
+  <!-- FontAwesome Pro (local) - Required for far/fal icons -->
   <link rel="stylesheet" href="/assets/css/all-fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/css/animate.min.css">
-  <link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
-  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Defer non-critical CSS -->
+  <link rel="preload" href="/assets/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/magnific-popup.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/sweetalert2.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css">
+  </noscript>
 
 </head>
 
 <body>
 
-  <!-- preloader -->
-  <div class="preloader">
+  <!-- preloader - Hidden by default, shown via JS -->
+  <div class="preloader" id="preloader" style="display: none;">
     <div class="loader-book">
       <div class="loader-book-page"></div>
       <div class="loader-book-page"></div>
@@ -37,6 +66,11 @@
     </div>
   </div>
   <!-- preloader end -->
+
+  <script>
+    // Show preloader immediately to prevent FOUC
+    document.getElementById('preloader').style.display = 'flex';
+  </script>
 
 
   <!-- header area -->
@@ -75,7 +109,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container position-relative">
           <a class="navbar-brand" href="/">
-            <img style="width: 3em" src="/assets/img/logo/logo.png" alt="logo">
+            <img style="width: 3em" src="/assets/img/logo/logo.png" alt="logo" loading="lazy">
           </a>
           <div class="mobile-menu-right">
             <div class="search-btn">
@@ -88,8 +122,8 @@
           <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://diamondschools.com.ng/pages/about">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://diamondschools.com.ng/pages/contact">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pages/about">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="/pages/contact">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="/pages/enroll">Enroll</a></li>
               <li class="nav-item"><a class="nav-link" href="https://exam.diamondschools.com.ng/">CBT</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>

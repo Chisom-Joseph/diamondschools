@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Chisom-Joseph/diamondschools#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "compression": "^1.8.1",
     "connect-flash": "^0.1.1",
     "country-state-city": "^3.2.1",
     "dotenv": "^16.4.5",
@@ -38,6 +39,8 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.6.5"
+    "sequelize-cli": "^6.6.5",
+    "sharp": "^0.34.5",
+    "terser": "^5.46.1"
   }
 }
