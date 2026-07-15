@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const sutdentProfileImageUpload = require("../../middlewares/studentProfileImageUpload ");
+const sutdentProfileImageUpload = require("../../middlewares/studentProfileImageUpload");
 
 module.exports = async (req, res) => {
   try {
