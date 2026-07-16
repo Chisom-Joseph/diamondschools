@@ -1,13 +1,30 @@
 const multer = require("multer");
 const path = require("path");
+const os = require("os");
+const fs = require("fs");
+
+const studentPhotosDir = os.platform() === "win32"
+  ? path.join(__dirname, "../public/assets/img/studentPhotos")
+  : "/data/diamondschools_storage/student_photos";
+
+const paymentProofsDir = os.platform() === "win32"
+  ? path.join(__dirname, "../public/assets/img/paymentProofs")
+  : "/data/diamondschools_storage/payment_proofs";
+
+if (!fs.existsSync(studentPhotosDir)) {
+  fs.mkdirSync(studentPhotosDir, { recursive: true });
+}
+if (!fs.existsSync(paymentProofsDir)) {
+  fs.mkdirSync(paymentProofsDir, { recursive: true });
+}
 
 // Set storage engine
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     if (file.fieldname === "photo") {
-      cb(null, "public/assets/img/studentPhotos/");
+      cb(null, studentPhotosDir);
     } else if (file.fieldname === "paymentProof") {
-      cb(null, "public/assets/img/paymentProofs/");
+      cb(null, paymentProofsDir);
     } else {
       cb(new Error("Unexpected file field name"));
     }

@@ -27,11 +27,11 @@ module.exports = async (req, res) => {
       // Extract filename from URL and build the correct file path
       if (req.body.profilePhoto) {
         const filename = path.basename(req.body.profilePhoto); // Extracts 'file-1742220856637.jpg'
-        const filePath = path.join(
-          __dirname,
-          "../../public/assets/img/studentPhotos",
-          filename
-        );
+        const os = require("os");
+        const uploadDir = os.platform() === "win32"
+          ? path.join(__dirname, "../../public/assets/img/studentPhotos")
+          : "/data/diamondschools_storage/student_photos";
+        const filePath = path.join(uploadDir, filename);
 
         // Check if the file exists and delete it
         if (fs.existsSync(filePath)) {

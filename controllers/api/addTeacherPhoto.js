@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
         }
       }
 
-      req.file.profileImageUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/teacherPhotos/${req.file.filename}`;
+      req.file.profileImageUrl = `https://files.diamondschools.com.ng/teacher_photos/${req.file.filename}`;
 
       console.log(req.body);
       return res.json({

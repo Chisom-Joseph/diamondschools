@@ -106,8 +106,8 @@ module.exports = async (req, res) => {
 
       const examinationNumber = await require("../utils/genExamNumber")();
       const password = await require("../utils/genPassword")();
-      const profileImageUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/studentPhotos/${req.files["photo"][0].filename}`;
-      const paymentProofUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/paymentProofs/${req.files["paymentProof"][0].filename}`;
+      const profileImageUrl = `https://files.diamondschools.com.ng/student_photos/${req.files["photo"][0].filename}`;
+      const paymentProofUrl = `https://files.diamondschools.com.ng/payment_proofs/${req.files["paymentProof"][0].filename}`;
 
       // Hash password
       const salt = await bcrypt.genSalt(10);
