@@ -46,11 +46,11 @@ module.exports = async (req, res) => {
       // Extract filename from URL and build the correct file path
       if (req.body.previousProfilePhoto) {
         const filename = path.basename(req.body.previousProfilePhoto); // Extracts 'file-1742220856637.jpg'
-        const filePath = path.join(
-          __dirname,
-          "../../public/assets/img/studentPhotos",
-          filename
-        );
+        const os = require("os");
+        const uploadDir = os.platform() === "win32"
+          ? path.join(__dirname, "../../public/assets/img/studentPhotos")
+          : "/data/diamondschools_storage/student_photos";
+        const filePath = path.join(uploadDir, filename);
 
         // Check if the file exists and delete it
         if (fs.existsSync(filePath)) {
@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
         }
       }
 
-      req.file.profileImageUrl = `${process.env.MAIN_WEBSITE_URL}/assets/img/studentPhotos/${req.file.filename}`;
+      req.file.profileImageUrl = `https://files.diamondschools.com.ng/student_photos/${req.file.filename}`;
 
       console.log(req.body);
       return res.json({
